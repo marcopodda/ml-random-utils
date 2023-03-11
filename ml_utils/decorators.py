@@ -10,18 +10,16 @@ from joblib import Parallel, delayed
 
 def parallelize(**kwargs) -> Callable:
     """
-    Returns a function that takes an iterable and calls it with
-    each item of the iterable in parallel using joblib. If `item`
-    is not a single element (e.g. a tuple or a list), it is the
-    responsibility of the function to which the decorator is
-    applied to unpack it. If not provided, kwarg argument `n_jobs`
-    will be set to the number of available CPUs minus 2.
+    Returns a function that takes an iterable and is applied in parallel
+    to each item of the iterable. It is responsibility of the caller to
+    unpack the iterable items if necessary. If not provided as a keyword
+    argument, `n_jobs` will be set to the number of available CPUs minus 2.
 
     Arguments:
         **kwargs: arguments to pass to joblib.Parallel
     Returns:
         a function that can be called with an iterable as argument.
-        Each function call will be processed in parallel using joblib.
+        It will process each item in the iterable in parallel using joblib.
     """
     kwargs["n_jobs"] = kwargs.get("n_jobs", max(cpu_count() - 2, 1))
 
