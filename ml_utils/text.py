@@ -28,7 +28,7 @@ def ngrams(text: str, n: int) -> list[str]:
         n (int): the size of the gram
 
     Returns:
-        a list n-grams
+        a list of n-grams
     """
     return [text[i : i + n] for i in range(0, len(text) + 1 - n)]
 
@@ -47,5 +47,7 @@ def ngrams_vocabulary(alphabet: str | list[str], n: int) -> Generator:
     if isinstance(alphabet, str):
         alphabet = list(alphabet)
 
-    for char_list in itertools.product(sorted(set(alphabet)), repeat=n):
+    alphabet = list(set(alphabet))
+
+    for char_list in itertools.product(alphabet, repeat=n):
         yield "".join(char_list)
