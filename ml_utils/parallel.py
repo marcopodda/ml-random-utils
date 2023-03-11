@@ -13,10 +13,10 @@ def parallelize(**kwargs):
     def wrapper(func):
 
         @wraps(func)
-        def inner(iterable: Iterable) -> Iterable | None:
+        def inner(items: Iterable) -> Iterable | None:
             executor = Parallel(**kwargs)
             job = delayed(func)
-            return executor(job(item) for item in iterable)
+            return executor(job(item) for item in items)
         return inner
 
     return wrapper
