@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as file:
 
 
 setup(
-    name="ml-utils",
+    name="ml-random-utils",
     version="0.1.0",
     license="MIT",
     description="Utilities I use in ML projects",
