@@ -1,11 +1,16 @@
+"""Setup file."""
 from setuptools import setup, find_packages
+
+with open("README.md", "r", encoding="utf-8") as file:
+    long_description = file.read()
+
 
 setup(
     name="ml-utils",
     version="0.1.0",
     license="MIT",
     description="Utilities I use in ML projects",
-    long_description=open("README.md").read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
         "Development Status :: 3 - Alpha",
