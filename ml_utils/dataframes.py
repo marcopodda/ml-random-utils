@@ -1,7 +1,7 @@
 """Utilities for working with pandas dataframes."""
 
 from functools import wraps
-from typing import Callable, Any
+from typing import Callable
 
 import pandas as pd
 

@@ -3,7 +3,10 @@
 from pathlib import Path
 
 
-def read_lines(path: str | Path, encoding: str | None = "utf-8") -> list[str]:
+def read_lines(
+    path: str | Path, encoding: str | None = "utf-8",
+    skip_blank: bool = True
+) -> list[str]:
     """
     Reads file lines by stripping out breaklines and trailing empty lines.
 
@@ -15,10 +18,9 @@ def read_lines(path: str | Path, encoding: str | None = "utf-8") -> list[str]:
         lines: a list with one element for each file line.
     """
     with open(path, "r", encoding=encoding) as file:
-        lines = [line.rstrip() for line in file.readlines()]
+        lines = [line.strip() for line in file.readlines()]
 
-    # get rid of trailing empty lines if any
-    if lines[-1] == "":
-        lines = lines[:-1]
+    if skip_blank:
+        return [l for l in lines if l != ""]
 
     return lines

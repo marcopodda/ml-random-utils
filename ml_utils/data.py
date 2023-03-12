@@ -3,6 +3,9 @@
 from sklearn.model_selection import train_test_split
 
 
+# pylint:disable=invalid-name
+
+
 def train_val_test_split(
     X,
     y,

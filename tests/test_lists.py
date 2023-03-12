@@ -1,5 +1,13 @@
+"""Tests for ml_utils.lists module."""
 import pytest
+
 from ml_utils.lists import flatten, filter_list, intersection, union, difference
+
+
+# pylint:disable=missing-function-docstring
+# pylint:disable=redefined-outer-name
+# pylint:disable=invalid-name
+# pylint:disable=unnecessary-lambda-assignment
 
 
 @pytest.fixture
@@ -37,7 +45,7 @@ def test_flatten_with_B_empty(B_empty):
 
 
 def test_flatten_both_empty(both_empty):
-    assert flatten(both_empty) == []
+    assert not flatten(both_empty)
 
 
 def test_filter_list(both_nonempty):
@@ -49,7 +57,7 @@ def test_filter_list(both_nonempty):
 def test_filter_list_cond_false(both_nonempty):
     A = flatten(both_nonempty)
     cond = lambda _: False
-    assert filter_list(A, cond) == []
+    assert not filter_list(A, cond)
 
 
 def test_filter_list_cond_true(both_nonempty):
@@ -60,7 +68,7 @@ def test_filter_list_cond_true(both_nonempty):
 
 def test_filter_list_empty_list():
     cond = lambda _: True
-    assert filter_list([], cond) == []
+    assert not filter_list([], cond)
 
 
 def test_intersection(both_nonempty):
@@ -70,17 +78,17 @@ def test_intersection(both_nonempty):
 
 def test_intersection_A_empty(A_empty):
     A, B = A_empty
-    assert intersection(A, B) == []
+    assert not intersection(A, B)
 
 
 def test_intersection_B_empty(B_empty):
     A, B = B_empty
-    assert intersection(A, B) == []
+    assert not intersection(A, B)
 
 
 def test_intersection_both_empty(both_empty):
     A, B = both_empty
-    assert intersection(A, B) == []
+    assert not intersection(A, B)
 
 
 def test_union(both_nonempty):
@@ -100,7 +108,7 @@ def test_union_B_empty(B_empty):
 
 def test_union_both_empty(both_empty):
     A, B = both_empty
-    assert union(A, B) == []
+    assert not union(A, B)
 
 
 def test_difference(both_nonempty):
@@ -110,7 +118,7 @@ def test_difference(both_nonempty):
 
 def test_difference_A_empty(A_empty):
     A, B = A_empty
-    assert difference(A, B) == []
+    assert not difference(A, B)
 
 
 def test_difference_B_empty(B_empty):
@@ -120,4 +128,4 @@ def test_difference_B_empty(B_empty):
 
 def test_difference_both_empty(both_empty):
     A, B = both_empty
-    assert difference(A, B) == []
+    assert not difference(A, B)

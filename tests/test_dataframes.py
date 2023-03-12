@@ -1,0 +1,19 @@
+"""Tests for ml_utils.dataframes module."""
+import pandas as pd
+
+from ml_utils.dataframes import rebuild_index
+
+
+# pylint:disable=missing-function-docstring
+
+
+def test_rebuild_index():
+    def fun():
+        return pd.DataFrame({
+            "col1": ["a", "b", "c"],
+            "col2": ["d", "e", "f"]
+        }).set_index("col1")
+
+    decorated = rebuild_index(fun)
+    result = decorated()
+    assert result.index.tolist() == [0, 1, 2]

@@ -15,7 +15,7 @@ def compose(*funcs: list[Callable]) -> Callable:
         a function which applies the function arguments sequentially.
     """
 
-    def apply(f, g):
-        return lambda x : f(g(x))
+    def apply(f, g):  # pylint:disable=invalid-name
+        return lambda x: f(g(x))
 
-    return reduce(apply, funcs[::-1], lambda x : x)
+    return reduce(apply, funcs[::-1], lambda x: x)

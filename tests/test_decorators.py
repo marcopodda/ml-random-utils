@@ -1,9 +1,13 @@
+"""Tests for ml_utils.decorators module."""
 from ml_utils.decorators import parallelize, timeit, dedup
 
 
+# pylint:disable=missing-function-docstring
+
+
 def test_parallelize():
-    def square(x):
-        return x ** 2
+    def square(number):
+        return number**2
 
     decorated = parallelize(backend="threading")(square)
     data = list(range(5))
@@ -12,8 +16,9 @@ def test_parallelize():
 
 
 def test_parallelize_n_jobs(capsys):
-    def square(x):
-        return x ** 2
+    def square(number):
+        return number**2
+
     n_jobs = 2
     decorated = parallelize(verbose=1, n_jobs=n_jobs, backend="threading")(square)
     data = list(range(5))
@@ -24,15 +29,15 @@ def test_parallelize_n_jobs(capsys):
 
 
 def test_parallelize_backend(capsys):
-    def square(x):
-        return x ** 2
+    def square(number):
+        return number**2
 
     decorated = parallelize(verbose=1, backend="threading")(square)
     data = list(range(5))
     _ = decorated(data)
 
     _, err = capsys.readouterr()
-    assert f"ThreadingBackend" in err
+    assert "ThreadingBackend" in err
 
 
 def test_timeit(capsys):
@@ -59,4 +64,4 @@ def test_dedup_empty():
 
     decorated = dedup(fun)
     result = decorated()
-    assert result == []
+    assert not result

@@ -1,5 +1,19 @@
+"""Tests for ml_utils.dicts module."""
 import pytest
-from ml_utils.dicts import dictify, filter_keys, filter_values, reverse_dict, find_nested
+
+from ml_utils.dicts import (
+    dictify,
+    filter_keys,
+    filter_values,
+    reverse_dict,
+    find_nested,
+)
+
+
+# pylint:disable=missing-function-docstring
+# pylint:disable=redefined-outer-name
+# pylint:disable=invalid-name
+# pylint:disable=unnecessary-lambda-assignment
 
 
 @pytest.fixture
@@ -39,7 +53,7 @@ def nested_dict():
 
 def test_dictify(adict):
     A, B = [1, 2, 3], ["a", "b", "c"]
-    assert dictify(A, B) == {1: "a", 2: "b", 3: "c"}
+    assert dictify(A, B) == adict
 
 
 def test_dictify_duplicate_key():
@@ -58,11 +72,11 @@ def test_dictity_raises_value_error():
 
 def test_dictify_empty_lists():
     A, B = [], []
-    assert dictify(A, B) == dict()
+    assert not dictify(A, B)
 
 
 def test_filter_keys(adict):
-    cond = lambda x: x % 2  == 0
+    cond = lambda x: x % 2 == 0
     assert filter_keys(adict, cond) == {2: "b"}
 
 
@@ -73,7 +87,7 @@ def test_filter_keys_cond_true(adict):
 
 def test_filter_keys_cond_false(adict):
     cond = lambda x: False
-    assert filter_keys(adict, cond) == dict()
+    assert not filter_keys(adict, cond)
 
 
 def test_filter_values(adict):
@@ -88,7 +102,7 @@ def test_filter_values_cond_true(adict):
 
 def test_filter_values_cond_false(adict):
     cond = lambda x: False
-    assert filter_values(adict, cond) == dict()
+    assert not filter_values(adict, cond)
 
 
 def test_reverse_dict(adict):
@@ -96,7 +110,7 @@ def test_reverse_dict(adict):
 
 
 def test_reverse_dict_empty():
-    assert reverse_dict(dict()) == dict()
+    assert not reverse_dict({})
 
 
 def test_find_nested(nested_dict):
