@@ -1,8 +1,4 @@
-"""Tests for ml_utils.files module."""
 from ml_utils.files import read_lines
-
-
-# pylint:disable=missing-function-docstring
 
 
 def test_read_lines(tmp_path):

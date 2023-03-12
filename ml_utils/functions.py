@@ -1,5 +1,3 @@
-"""Functional commodities."""
-
 from functools import reduce
 from typing import Callable
 

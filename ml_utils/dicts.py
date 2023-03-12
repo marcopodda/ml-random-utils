@@ -1,5 +1,3 @@
-"""Utilities to handle dictionaries."""
-
 from typing import Callable, Any
 
 

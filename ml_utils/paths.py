@@ -1,4 +1,3 @@
-"""Utilities to work with paths."""
 from pathlib import Path
 
 

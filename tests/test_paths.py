@@ -1,8 +1,4 @@
-"""Tests for ml_utils.paths module."""
 from ml_utils.paths import listdir, dir_is_empty
-
-
-# pylint:disable=missing-function-docstring
 
 
 def test_listdir(tmp_path):

@@ -1,5 +1,3 @@
-"""Utilities for working with pandas dataframes."""
-
 from functools import wraps
 from typing import Callable
 

@@ -1,13 +1,9 @@
-"""Tests for ml_utils.lists module."""
 import pytest
 
 from ml_utils.lists import flatten, filter_list, intersection, union, difference
 
 
-# pylint:disable=missing-function-docstring
 # pylint:disable=redefined-outer-name
-# pylint:disable=invalid-name
-# pylint:disable=unnecessary-lambda-assignment
 
 
 @pytest.fixture

@@ -1,5 +1,3 @@
-"""Utilities to handle lists."""
-
 import itertools
 from typing import Callable
 

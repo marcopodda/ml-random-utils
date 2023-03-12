@@ -1,8 +1,4 @@
-"""Tests for ml_utils.decorators module."""
 from ml_utils.decorators import parallelize, timeit, dedup
-
-
-# pylint:disable=missing-function-docstring
 
 
 def test_parallelize():

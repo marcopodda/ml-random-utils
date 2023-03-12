@@ -1,4 +1,3 @@
-"""Tests for ml_utils.dicts module."""
 import pytest
 
 from ml_utils.dicts import (
@@ -9,12 +8,7 @@ from ml_utils.dicts import (
     find_nested,
 )
 
-
-# pylint:disable=missing-function-docstring
 # pylint:disable=redefined-outer-name
-# pylint:disable=invalid-name
-# pylint:disable=unnecessary-lambda-assignment
-
 
 @pytest.fixture
 def adict():

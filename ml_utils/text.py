@@ -1,10 +1,5 @@
-"""Utilities for text processing."""
-
 import itertools
 from typing import Generator
-
-
-# pylint:disable=invalid-name
 
 
 def replace_char(text: str, char: str, replacement: str) -> str:
@@ -39,7 +34,7 @@ def ngrams(text: str, n: int) -> list[str]:
 
 def ngrams_vocabulary(
     alphabet: str | list[str],
-    n: int,  # pylint:disable=invalid-name
+    n: int,
 ) -> Generator:
     """
     Generates a vocabulary of ngrams on the fly with consistent ordering.

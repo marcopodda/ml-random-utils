@@ -1,0 +1,66 @@
+# pyproject.toml
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+  "setuptools>=42",
+  "wheel",
+] # PEP 508 specifications.
+
+[project]
+authors = [
+  {name = "Marco Podda", email = "marco.podda@di.unipi.it"},
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Topic :: Machine Learning :: Build Tools",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "numpy>=1.24.2",
+  "pandas>=1.5.3",
+  "scikit-learn>=1.2.2",
+  "pytest>=7.2.2",
+  "coverage>=7.2.1",
+  "pylint==2.17.0",
+  "black==23.1.0",
+]
+description = "Random utilities I use in my ML projects."
+dynamic = ["version"]
+license = {text = "MIT"}
+name = "ml-random-utils"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+addopts = [
+  "--color=yes",
+  "--durations=0",
+  "--strict-markers",
+  "--doctest-modules",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::UserWarning",
+]
+log_cli = "True"
+minversion = "7.2.2"
+testpaths = "tests/"
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: nocover",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "raise NotImplementedError()",
+  "if __name__ == .__main__.:",
+]
+
+[tool.pylint.FORMAT]
+max-line-length = 120
+
+[tool.pylint]
+disable = "missing-docstring,invalid-name,unnecessary-lambda-assignment"
+
+[tool.black]
+line-length = 120

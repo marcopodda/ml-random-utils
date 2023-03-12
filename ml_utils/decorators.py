@@ -1,5 +1,3 @@
-"""General-purpose decorators."""
-
 import time
 from typing import Callable, Iterable
 from functools import wraps

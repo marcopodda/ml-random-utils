@@ -1,10 +1,6 @@
-"""Tests for ml_utils.dataframes module."""
 import pandas as pd
 
 from ml_utils.dataframes import rebuild_index
-
-
-# pylint:disable=missing-function-docstring
 
 
 def test_rebuild_index():

@@ -1,5 +1,3 @@
-"""Utilities to handle random numbers."""
-
 import os
 import random
 

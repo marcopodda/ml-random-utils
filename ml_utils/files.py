@@ -1,5 +1,3 @@
-"""Utilities to handle files."""
-
 from pathlib import Path
 
 
